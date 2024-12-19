@@ -1,0 +1,92 @@
+scope indicates visibility of variable and functions. in what all parts of code they are visible so that we can use them
+
+we use variables and functions in either these tow ways:
+1. we are assigning value/defintion to them
+2. we will be retreiving some value from them
+
+IS JS COMPILED OR INTERPRETED LANGUAGE  ?
+
+-> In compiled language there is a process called COMPILER. Compiler reads your whole code altogether and spots all the mistakes in your code and eventually throw an error that there are n number of errors in your code, you cannot move forward. If the compilation is done successfully, then only your code starts executing.
+example: C, C++
+
+-> In interpreted language there is a process called INTERPRETER. Interpreter reads your code line by line and executes it line by line
+example: shell script
+
+-> JS is not a purely interpreted language. We can show it using below code snippet.
+
+console.log("hello");
+function x(){
+    console...log("hello");
+}
+
+JS does not  execute console statement in above case, which shows it is not a purely interpreted language
+
+-> JS is not a purely compiled language too. We can show it using below code snippet
+console.log("hello");
+console.lo("hello again");
+
+JS executes the first console statement in above case before throwing error for second console statement, which shows it is not a purely compiled language
+
+Each JS code is executed in 2 phase: parsing phase  and the execution phase
+
+JS SCOPE:JS has 4 types of scope:Global, function, block, module scopes
+
+GLOBAL : variable/function in global scope is accessible everywhere
+
+FUNCTION: variable/function in function scope is accessible inside the function only
+
+BLOCK: variable/function defined inside a block(specified by curly braces {}) is accessible only inisde the block. Blocks only scope let and const and do not scope "var".
+
+MODULE SCOPE
+
+One way to create global variable is to a vaariable outside any function and block
+
+A variable defined with var can only have global scope or function scope.
+
+var supports hoisting
+
+
+PARSING PHASE:
+-> in parsing, js reads whole code one by one and starts allocating the variables/fuctions their corresponding . during parsing phase we only look at formal declarations
+
+autoglobals: if we  are trying to assign value to a variable which is not present inside any of enclosing scope, that variable automatically becomes global variable
+
+autoglobals are  created  during execution phasec and not parsing phase. autoglobals work only in non strict mode.
+
+
+MODE: In JS, we can execute code in two modes: strict mode and non strict mode
+
+parsing catches syntactical error, when any error is encountered during parsing, no line of ccode is executed and error is thrown immediately
+
+when an error is not  syntactical error and is encountered  during execution phase, at that time, code is executed until the line which is causing error and then error is thrown in midst of execution
+
+website to check scope: https://mazurov.github.io/eslevels-demo/
+
+console.log() is not a js feature but a  runtime feature
+
+LEXICAL SCOPE: Scoping is determined during compile time. So before execution phase, scopes are determined.
+
+DYNAMIC SCOPE: Scoping is determined during runtime. example: bash scripts
+
+JS SUPPORTS LEXICAL Scoping
+
+functions in block: strict v/s non-strict mode
+
+TEMPORAL DEAD ZONE(TDZ): the region before the declaration of a variable which is having block scope made by let/const is called as TDZ
+you cannot a block scoped variable before its declaration
+
+-> var is function scoped and let/const is block scoped.
+-> var can be redeclared but let/connst cannot be redeclared
+
+//DIFFERENT WAYS OF DEFINING functions
+
+SCOPE OF FUNCTION EXPRESSION
+-> function expressions get the scope of their corresponding variable in which they are assigned.
+
+FUNCTION EXPRESSIONS are of two types:
+1. anonymous function expression
+2. named function expression
+
+USE stackshare.io  to check which all apps use react for example
+
+
