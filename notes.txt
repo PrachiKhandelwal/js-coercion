@@ -1,0 +1,47 @@
+ABSTRACT OPERATIONS: Set of alogorithms which are  present in ecmascript docs but are not available for usage in ecmascript ie. we as developers cannot use these operations directly
+
+they are present in docs to explain the internal functioning of the language, js inetrnally executes  these alogirithms basically
+
+we have two types of typecasting/type conversion
+
+1. Explicit typecasting: we manually convert the data type
+2. Implicit typecasting: the language based on certainn rules, automatically converts the data type. This is also called COERCION
+
+COERCION examples:
+
+"1"+1=>"11"
+1+1+"1"=>"21"
+"1"+1+1=>"111"
+"1" -1 or 1-"1"=>0 => this happens bcz of coercion, js converts operands to TONumber
+
+ToPrimitive(input, preferredType): this function converts the input to  non-object type. preferredType is optional and is used when the input can be converted to multiple non-object types.
+
+ECMASCRIPT DOCS: https://262.ecma-international.org/10.0/#sec-toprimitive
+
+typeof null is an object and it is a historical mistake in js
+
+NaN: whenever we try to convert data to number type, either implicitly or explicitly, we might end up getting NaN which represents invalid number
+
+HOW TO CHECK A VARIABLE VALUE IS NaN?
+We can use isNaN() method to check whether a value is equal to NaN or not. But we should not bcz it does implicit conversion
+But the issue with isNaN() is that it returns true even when we pass a string inside it as argument
+SOLUTION: use Number.isNaN() bcz it does not do implicit conversion
+
+CUSTOM FUNCTION TO CHECK NaN
+
+const IsNaNCustom=(input)=>{
+    if(typeof input === "number" && input !== input){
+        return true;
+    } 
+    return false;
+}
+NaN is the only number  which is never equal to itself
+
+To check whether thhe input is negative 0, we can use  Object.is()
+example:
+let x=-0;
+console.log(Object.is(x,-0));//true
+console.log(Object.is(x,+0));//false
+
+console.log(1.toString()); //throws error bcz 1  is a primitive and toString()  is available only for objects
+console.log("abc".toString()); //returns "abc"
